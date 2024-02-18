@@ -27,6 +27,15 @@
 </head>
 <body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
 
+<!-- =========================
+     PRE LOADER       
+============================== -->
+<div class="preloader">
+
+	<div class="sk-rotating-plane"></div>
+
+</div>
+
 
 <!-- =========================
      NAVIGATION LINKS     
@@ -88,6 +97,9 @@
 
 			<div class="wow col-md-10 col-sm-10">
 				<p>Aliquam faucibus lobortis dolor, id pellentesque eros pretium in. Aenean in erat ut quam aliquet commodo. Vivamus aliquam pulvinar ipsum ut sollicitudin. Suspendisse quis sollicitudin mauris.</p>
+				<p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are</p>
+				<p>$$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.$$</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -132,6 +144,10 @@
 <script src="../../js/smoothscroll.js"></script>
 <script src="../../js/wow.min.js"></script>
 <script src="../../js/custom.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
 
 </body>
 </html>
