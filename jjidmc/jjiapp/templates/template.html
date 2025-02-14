@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+<meta name="description" content="Jornadas de Jovenes Investigadores del Departamento de Matematicas y Computacion">
+<meta name="author" content="JJI-DMC">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+<link rel="stylesheet" href="{% static 'css/latex.css' %}">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!-- Google Font -->
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+
+<!-- New Event http://www.templatemo.com/tm-486-new-event -->
+</head>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+<!-- =========================
+     NAVIGATION LINKS     
+============================== -->
+{% if collapse %}
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+{% else %}
+<div class="navbar navbar-fixed-top custom-navbar top-nav-collapse" role="navigation">
+{% endif %}
+	<div class="container">
+
+		<!-- navbar header -->
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="/" class="navbar-brand">Jornadas JJI-DMC</a>
+		</div>
+
+		<div class="collapse navbar-collapse">
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/" class="smoothScroll">Inicio</a></li>
+				<li><a href="/#overview" class="smoothScroll">Descripción</a></li>
+				<li><a href="/#detail" class="smoothScroll">Ediciones</a>
+				<li><a href="/#faq" class="smoothScroll">FAQ</a></li>
+				<li><a href="/#register" class="smoothScroll">Inscripción</a></li>
+				<li><a href="/#contact" class="smoothScroll">Contacto</a></li>
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
+
+{% block content %}{% endblock %}
+
+<!-- =========================
+    FOOTER SECTION   
+============================== -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<p class="wow fadeInUp" data-wow-delay="0s">Copyright &copy; <script>document.write((new Date()).getFullYear())</script> JJI-DMC</p>
+
+				<ul class="social-icon">
+					<li><a href="https://www.unirioja.es/" class="fa fa-house wow fadeInUp" data-wow-delay="1s"></a></li>
+					<li><a href="https://twitter.com/unirioja" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a></li>
+					<li><a href="https://www.facebook.com/unirioja" class="fa fa-facebook wow fadeInUp" data-wow-delay="1.6s"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+
+<!-- =========================
+     SCRIPTS   
+============================== -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.parallax.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/smoothscroll.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+{% if collapse %}
+<script src="{% static 'js/collapse.js' %}"></script>
+{% endif %} 
+
+</body>
+</html>

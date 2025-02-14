@@ -1,0 +1,2 @@
+cd jjidmc
+..\Scripts\activate

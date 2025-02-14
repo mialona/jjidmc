@@ -1,0 +1,64 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block title %}
+	{{ titulo }} - JJI-DMC
+{% endblock %}
+
+{% block content %}
+<!-- =========================
+    PROGRAM SECTION   
+============================== -->
+<section id="program" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-9 col-sm-9">
+				<div class="section-title">
+					<h2>{{ titulo }}</h2>
+					{% for x in descripcion %}
+						<p>{{ x }}</p>
+					{% endfor %}
+					{% if parners|length > 0 %}
+						<p>Partners de esta edición:
+							<ul>
+								{% for y in parners %}
+									<li>{{ y }}</li>
+								{% endfor %}
+							</ul>
+						</p>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="col-md-10 col-sm-10"">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					{% for d in dias %}
+						<li {% if forloop.first %} class="active" {% endif %}><a href="#{{ d|date:"dF" }}" aria-controls="" role="tab" data-toggle="tab" style="text-transform:uppercase">{{ d|date:"d \d\e F" }}</a></li>
+					{% endfor %}
+				</ul>
+				<!-- tab panes -->
+				<div class="tab-content">
+					{% for day in presentaciones %}
+					<div role="tabpanel" class="tab-pane {% if forloop.first %} active {% endif %}" id="{{ day.0.fecha|date:"dF" }}">
+						{% for z in day %}
+						<!-- program speaker -->
+						<div class="col-md-10 col-sm-10" {% if z.destacado %} style="background-color: #EBEBEB;" {% endif %}>
+							<h6>
+								<span><i class="fa fa-clock-o"></i> {{ z.hora_inicio }} - {{ z.hora_fin }}</span>
+							</h6>
+							<h3>{% if z.sin_detalles != True %}<a href="{% url 'presentation' curso=curso id=z.id %}" class="a-program">{% endif %}{{ z.titulo }}{% if z.sin_detalles != True %}</a>{% endif %}</h3>
+							<h4>{{ z.autor }}</h4>
+						</div>
+						
+						<!-- program divider -->
+						<div class="program-divider col-md-10 col-sm-10"></div>
+						{% endfor %}
+					</div>
+					{% endfor %}
+				</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,300 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block title %}
+  Jornadas JJI-DMC
+{% endblock %}
+
+
+{% block content %}
+<!-- =========================
+     PRE LOADER       
+============================== -->
+<div class="preloader">
+
+	<div class="sk-rotating-plane"></div>
+
+</div>
+
+
+<!-- =========================
+    INTRO SECTION   
+============================== -->
+<section id="intro" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12 col-sm-12">
+				<h3 class="wow bounceIn" data-wow-delay="0.9s">{{ configuracion.fechas }}</h3>
+				<h1 class="wow fadeInUp" data-wow-delay="1.6s">Jornadas de Jóvenes Investigadores</h1>
+				<h2 class="wow fadeInUp" data-wow-delay="2s">Departamento de Matemáticas y Computación</h2>
+				<a href="#overview" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="2.3s">MÁS INFORMACIÓN</a>
+				<a href="#register" class="btn btn-lg btn-danger smoothScroll wow fadeInUp" data-wow-delay="2.3s">INSCRÍBETE</a>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+
+<!-- =========================
+    OVERVIEW SECTION   
+============================== -->
+<section id="overview" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0s">
+				<h3>¿Qué son las Jornadas de Jóvenes Investigadores del DMC o JJI-DMC?</h3>
+				<p>Las JJI-DMC constituyen un evento académico y científico organizado por los y las estudiantes del Programa de Doctorado de Matemáticas y Computación, en el que se proporciona un foro especializado para que los y las mismas puedan presentar los avances y resultados de sus investigaciones.</p>
+				<p>El propósito de las Jornadas consiste en dar a conocer mejor el Programa entre los y las estudiantes de grado y máster, aumentar el grado de conocimiento sobre la labor investigadora de los y las estudiantes predoctorales del Programa y fomentar la participación de estos y estas en actividades colectivas, al mismo tiempo que se mejoran las habilidades transversales en materia de comunicación oral y difusión de resultados científicos.</p>
+			</div>
+					
+			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+				<img src="{% static 'images/overview-img.jpg' %}" class="img-responsive" alt="Overview">
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- =========================
+    DETAIL SECTION   
+============================== -->
+<section id="detail" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
+				<i class="fa fa-group"></i>
+				<h3>Organización</h3>
+				<p>Los estudiantes del Programa de Doctorado de Matemáticas y Computación coordinan y dan soporte a las Jornadas.</p>
+			</div>
+
+			<div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
+				<i class="fa fa-clock-o"></i>
+				<h3>Duración</h3>
+				<p>Las Jornadas tienen una duración aproximada de 2 o 3 días, y se escoge un horario adecuado para los estudiantes del Departamento.</p>
+			</div>
+
+			<div class="wow fadeInRight col-md-4 col-sm-4" data-wow-delay="0.9s">
+				<i class="fa fa-microphone"></i>
+				<h3>Comunicaciones</h3>
+				<p>El número de comunicaciones o presentaciones varía en función del número de matriculados en el Programa, así como de la participación de otros estudiantes.</p>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="program-divider col-md-20 col-sm-20"></div>
+			
+			<div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="1.2s">
+				<h3>Ediciones</h3>
+				{% for x in ediciones %}
+					<p><a href="edition/{{ x.curso }}" target="_blank">{{ x.titulo }}</a></p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- =========================
+    FAQ SECTION   
+============================== -->
+<section id="faq" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<!-- Section title
+			================================================== -->
+			<div class="wow bounceIn col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
+				<div class="section-title">
+					<h2>Preguntas frecuentes</h2>
+					<p>Si tienes alguna pregunta no incluida en la siguiente lista, te animamos a contactar con el Comité Organizador del evento.</p>
+				</div>
+			</div>
+
+			<div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.9s">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    				<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOne">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          							¿Puedo participar en las Jornadas?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      						<div class="panel-body">
+                            	<p>En materia de contenido, para participar en el evento es suficiente con haber llevado a cabo cualquier labor investigadora en el Departamento de Matemáticas y Computación susceptible de comunicarla a los compañeros y compañeras del Departamento.</p>
+        						<p>En el sentido de vinculación con el Programa de Doctorado, será necesario estar en una de las siguientes situaciones:</p>
+								<ul>
+									{% for x in participacion %}
+										<li><p>{{ x }}</p></li>
+									{% endfor %}
+								</ul>
+								<p>En caso de no cumplir una de estas situaciones (o no estar seguro o segura de ello), os animamos a contactar con el Comité Organizador a través de la dirección de correo electrónico de contacto <a href="mailto:jji-dmc@unirioja.es">jji-dmc@unirioja.es</a> para resolver cualquier cuestión.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingTwo">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          							 ¿Las JJI-DMC son un evento periódico? ¿Cuándo se llevan a cabo?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+      						<div class="panel-body">
+        						<p>Las Jornadas de Jóvenes Investigadores se han planteado como un evento periódico anual, celebrado alrededor del mes de abril, previo al seguimiento anual del doctorando (RAPI). En cada edición, el Comité Organizador es diferente, y es posible contactar con él a través de la dirección de correo electrónico de contacto <a href="mailto:jji-dmc@unirioja.es">jji-dmc@unirioja.es</a>.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingThree">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          							¿Dónde se realizan las Jornadas?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      						<div class="panel-body">
+                            	<p>El evento es gestionado por estudiantes matriculados y matriculadas en el Programa de Doctorado de Matemáticas y Computación, y se lleva a cabo en el Complejo Científico-Tecnológico de la Universidad de La Rioja (C/ Madre de Dios, 53, 26006 Logroño, La Rioja, España, decanato.fct@unirioja.es).</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingFour">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          							¿Cuál es el formato para llevar a cabo mi presentación?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      						<div class="panel-body">
+                            	<p>El formato depende de la edición de las Jornadas.</p>
+								{% for x in formato %}
+									<p>{{ x }}</p>
+								{% endfor %}
+
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingFive">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          							Si no voy a participar en las Jornadas, ¿puedo asistir como oyente?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      						<div class="panel-body">
+                            	<p>¡Por supuesto! ¡De hecho, te animamos a asistir!</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingSix">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          							Aunque esté matriculado/a en el Programa de Doctorado, no sé si tengo resultados científicos suficientes. ¿Puedo participar?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      						<div class="panel-body">
+                            	<p>Teniendo en cuenta el propósito de las Jornadas, el contenido de la presentación puede no estar vinculado a resultados científicos concretos. Si eres un o una estudiante de doctorado de los primeros cursos, puedes mostrar en qué consistirá tu tesis doctoral (si todavía no lo has construido, quizá te pueda ayudar a escribir el Plan de Investigación del doctorado). También puedes presentar en qué consisten los primeros esfuerzos realizados en materia del desarrollo de la tesis, y qué resultados esperas obtener.</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingSeven">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          							¿Cómo puedo contactar con el Comité Organizador o el Comité Científico del evento?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+      						<div class="panel-body">
+                            	<p>Tanto el Comité Organizador como el Comité Científico estarán encantados de resolver cualquier duda a través de la dirección de correo electrónico de contacto <a href="mailto:jji-dmc@unirioja.es">jji-dmc@unirioja.es</a>.</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 				 </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- =========================
+   REGISTER SECTION   
+============================== -->
+<section id="register" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeInUp col-md-10 col-sm-10" data-wow-delay="0s">
+				<h2>Inscripción</h2>
+				<h3>¿Quieres participar en las Jornadas de Jóvenes Investigadores del DMC?</h3>
+				<p>Para participar, es necesario encontrarse en una de las siguientes situaciones:</p>
+				<ul>
+					{% for x in participacion %}
+						<li><p>{{ x }}</p></li>
+					{% endfor %}
+				</ul>
+			</div>
+				
+			<div class="program-divider col-md-12 col-sm-12"></div>
+				
+			<div class="wow fadeInUp col-md-7 col-sm-7" data-wow-delay="0s">
+				<h4>{{ configuracion.periodo_inscripcion }}</h4>
+				<form action="{{ configuracion.url_inscripcion }}" method="get" target="_blank">
+					<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1s">
+						<input name="submit" type="submit" class="form-control" id="submit" value="INSCRIBIRSE">
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- =========================
+    CONTACT SECTION   
+============================== -->
+<section id="contact" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="wow fadeInUp col-md-offset-1 col-md-5 col-sm-6" data-wow-delay="0s">
+				<div class="contact_des">
+					<h3>JJI-DMC</h3>
+					<p>Complejo Científico-Tecnológico, Universidad de La Rioja</p>
+					<p>C/ Madre de Dios, 53</p>
+					<p>26006 Logroño, La Rioja, España</p>
+					<p><a href="mailto:jji-dmc@unirioja.es">jji-dmc@unirioja.es</a></p>
+					<!-- <a href="#" class="btn btn-danger">DOWNLOAD NOW</a> -->
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+{% endblock %}
